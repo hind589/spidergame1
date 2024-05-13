@@ -1,0 +1,117 @@
+
+
+
+
+
+body{
+    
+ 
+ 
+ 
+
+background: gray url(https://image.ibb.co/ky3Y0S/teee.png) repeat 0 0;
+-webkit-animation: slideAnimation 10s linear infinite;
+  }
+  @-webkit-keyframes slideAnimation {
+    0% {
+      background-position: 100% 0; /* Start position (right side) */
+    }
+    100% {
+      background-position: -100% 0; /* End position (left side) */
+    }
+  }
+.rocket{
+    position: absolute;
+width: 200px;
+left: 45%;
+top: 64%;
+
+  }  
+  .spider{
+    position: absolute;
+width: 200px;
+
+
+  }  
+  .fire{
+    position: absolute;
+width: 30px;
+
+
+  }  
+  #nbfire{
+    position:absolute;
+    color: beige;
+    top: 10%;
+    left:8%
+  }
+  #fireimg{
+    position: absolute;
+    width: 30px;
+    top: 12%;
+    left:5%
+  }
+  #nbspiderkilled{
+    position:absolute;
+    color: beige;
+    top: 18%;
+    left:9%;
+  }
+  #spiderimg{
+    position: absolute;
+    width: 100px;
+    top: 20%;
+    left: 3% ;
+  }
+  #level{
+    text-transform: uppercase;
+    position: absolute;
+    width: 150px;
+    top: 2%;
+    left: 5%;
+    color: brown;
+     
+      font-size: 36px;
+      font-weight: bold;
+      color: #ffffff; /* Initial color */
+      background: linear-gradient(90deg, #ff0000, #ffff00, #00ff00, #0000ff); /* Gradient for shining effect */
+      background-size: 200% 200%; /* Twice the size to allow smooth transition */
+      text-align: center;
+      -webkit-background-clip: text; /* Clip text with background */
+      -webkit-text-fill-color: transparent; /* Transparent text */
+      animation: shining 3s linear infinite; /* Animation duration and timing */
+    
+    
+    @keyframes shining {
+      0% {
+        background-position: 0% 50%; /* Initial position of the gradient */
+      }
+      100% {
+        background-position: 100% 50%; /* Final position of the gradient */
+      }
+    }
+  }
+  /* Custom animation for modal */
+ /* Custom animation for modal */
+ 
+#bonus{
+  position:absolute;
+  color: beige;
+  top: 7%;
+  left:12%;
+  display:block;
+  size: 500px;
+
+}
+#voixon{
+  position: absolute;
+  left:90%;
+  width:50px;
+  top:10%;
+}
+#musicon{
+  position: absolute;
+  left:85%;
+  width:50px;
+  top:10.5%;
+}
