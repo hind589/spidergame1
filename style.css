@@ -115,3 +115,21 @@ width: 30px;
   width:50px;
   top:10.5%;
 }
+#st{
+  position: absolute;
+  top: 45%;
+  left: 40%;
+  width: 20%;
+  background-color: #4CAF50; /* Couleur de fond */
+  border: none; /* Supprime la bordure */
+  color: white; /* Couleur du texte */
+  padding: 15px 32px; /* Espacement à l'intérieur du bouton */
+  text-align: center; /* Alignement du texte */
+  text-decoration: none; /* Supprime les décorations de texte */
+  display: inline-block; /* Affiche en ligne */
+  font-size: 36px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; /* Taille de la police */
+  margin: 4px 2px; /* Marge extérieure */
+  cursor: pointer; /* Curseur de souris */
+  border-radius: 8px; /* Bordure arrondie */
+}

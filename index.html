@@ -17,21 +17,20 @@
 
   <body>
     <div class="scene"></div>
-    
-    <audio id="mymusic">
-      <source src="music.mp3" type="audio/mpeg">
-      
-    </audio>
+
+    <audio id="mymusic" src="music.mp3" p></audio>
     <audio id="myshot" src="shot.mp4" autoplay></audio>
     <img src="./rocket.png" class="rocket" id="rocket" />
     <h1 id="nbfire">150</h1>
     <img src="fire.png" id="fireimg" />
     <h1 id="nbspiderkilled">0</h1>
+
     <img src="spider.png" id="spiderimg" />
     <h1 id="level">level: 1</h1>
     <h1 id="bonus"></h1>
     <img src="voix-on.png" onclick="clicksound()" id="voixon" />
     <img src="musicon.png" onclick="clickmusic()" id="musicon" />
+    <button onclick="start()" id="st">Start</button>
     <script src="logic.js"></script>
     <!-- Custom JavaScript to handle restart button -->
   </body>

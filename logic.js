@@ -5,15 +5,24 @@ var nbFire=0;
 var spiderkilled=0;
 var level=1;
 var bonus=100;
-var sound=true;
+var sound=false;
 var music=true;
+
+
+
+
+
+
+
+var tabo=0;
+
 
 document.addEventListener('keyup', function(event) {
     
     if (event.keyCode ===37) {
       left-=3
        move()
-     
+   
   }
     if (event.keyCode ===39) {
         console.log('right');
@@ -24,7 +33,7 @@ document.addEventListener('keyup', function(event) {
       if (event.keyCode === 32) {
       
         if( nbFire<initialfire   ){
-
+        initialfire+=tabo;
         creatfire()
 
         nbFire++;
@@ -36,7 +45,17 @@ document.addEventListener('keyup', function(event) {
         document.getElementById('nbfire').innerHTML=initialfire;
         setTimeout(()=>{document.getElementById('nbfire').style.color="white"},500)
         
+        if (sound==false){
          
+          var soundshot = document.getElementById("myshot");
+            soundshot.play();
+              }
+
+
+       
+      
+
+
          
   }
       
@@ -89,58 +108,57 @@ function creatspi(){
   
  }
 
-
-  creatspi()
-  repter()
-  repterfire()
-  changelevel()
-  window.onload = function() {
-    var audio = document.getElementById("mymusic");
-    audio.play();
-  };
  
-   var clicked =document.getElementById("voixon");
+ var clicked =document.getElementById("voixon");
   var soundshot = document.getElementById("myshot");
   
   function clicksound(){
+  
   if (sound==true){
     document.getElementById('voixon').src="voix-on.png";
-    if (soundshot.paused) {
-      soundshot.play();
-       } 
-     sound=false;
+  
+
   }
   else{
     document.getElementById('voixon').src="voix-off.png";
-    audio.pause();
-    sound=true;
+
+  }  
+  
+  sound=!sound;
   }
-  }
+
+
+
   var audio = document.getElementById("mymusic");
   var playButton = document.getElementById("musicon");
-
-  audio.play();
+setTimeout(()=>{
+audio.play();
+},2000)
+  
   function clickmusic(){
-    if (music==false){
-      alert("khdama")
+    if (music==true){
+  
       document.getElementById('musicon').src="musicoff.png"; 
        
         audio.play();
                 
       
-       music=true;
+       music=false;
     }
     else{
-      alert("makhadamach")
+
       document.getElementById('musicon').src="musicon.png";
       audio.pause();
       music=true;
     }
   }
 
+  var myInterval=null;
+  var acceleration=1;
 function repter(){
   
-  const myInterval=setInterval(()=>{
+   myInterval=setInterval(()=>{
+    console.log(acceleration)
     var randome=Math.random()*200
     if(randome>179){
            creatspi()
@@ -150,7 +168,7 @@ function repter(){
       var topp=spiders[i].style.top.split("%").join('');
       var topi=parseInt(topp)
       if(topi<70){
-             topi+=1;
+             topi+=acceleration;
        spiders[i].style.top=topi+"%"
     }
     else{
@@ -190,7 +208,7 @@ function repter(){
     }
     
     }
-},100)
+},200)
 
 }    
  
@@ -213,7 +231,7 @@ function test(){
       
 if((parseInt(pp)<topi) && (leftfire>leftspider && leftfire < leftspider+7)){
   
-  soundshot.play();
+
    
   document.body.removeChild(fires[j])
   fires.splice(j,1)
@@ -242,7 +260,7 @@ if((parseInt(pp)<topi) && (leftfire>leftspider && leftfire < leftspider+7)){
    
   }
 
-
+var killernum=10;
 
 
 
@@ -253,10 +271,14 @@ function repterfire(){
   
   setInterval(()=>{ 
     
-    if ( spiderkilled>100  ){
-      document.getElementById('level').innerHTML="LEVEL:" +" " +(level+1);
-      
-     
+    if ( spiderkilled>=killernum  ){
+      level+=1;
+      document.getElementById('level').innerHTML="LEVEL:" +" " +(level);
+      clearInterval(myInterval)
+     acceleration+=1.5;
+     tabo+=30;
+     killernum+=15
+     repter()
     
     }
      
@@ -283,9 +305,11 @@ function repterfire(){
   } 
  
 
-
-
-
-
-
-
+  function start(){
+    creatspi()
+    repter()
+    repterfire()
+    changelevel()
+    clickmusic()
+    document.getElementById("st").style.display="none"
+  }
